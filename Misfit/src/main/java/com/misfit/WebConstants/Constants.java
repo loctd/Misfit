@@ -45,10 +45,36 @@ public class Constants {
 	public static final String XPATH_LEGAL_WARRANTY = ".//*[@id='footer']/div/nav/section/div[2]/div[1]/div/div[4]/div[1]/div/ul/li[3]/a";
 	
 	//Footer Social
-	public static final String XPATH_SOCIAL_FACEBOOK = "";
-	public static final String XPATH_SOCIAL_TWEETER = "";
-	public static final String XPATH_SOCIAL_INSTAGRAM = "";
-	public static final String XPATH_SOCIAL_YOUTUBE = "";
-	public static final String XPATH_SOCIAL_GOOGLE = "";
-	public static final String XPATH_SOCIAL_PINTEREST = "";
+	public static final String XPATH_SOCIAL_FACEBOOK = ".//*[@id='footer']/div/nav/section/div[2]/div[2]/div/ul/li[2]/a/i";
+	public static final String XPATH_SOCIAL_TWITTER = ".//*[@id='footer']/div/nav/section/div[2]/div[2]/div/ul/li[3]/a/i";
+	public static final String XPATH_SOCIAL_INSTAGRAM = ".//*[@id='footer']/div/nav/section/div[2]/div[2]/div/ul/li[4]/a/i";
+	public static final String XPATH_SOCIAL_YOUTUBE = ".//*[@id='footer']/div/nav/section/div[2]/div[2]/div/ul/li[5]/a/i";
+	public static final String XPATH_SOCIAL_GOOGLE = ".//*[@id='footer']/div/nav/section/div[2]/div[2]/div/ul/li[6]/a/i";
+	public static final String XPATH_SOCIAL_PINTEREST = ".//*[@id='footer']/div/nav/section/div[2]/div[2]/div/ul/li[7]/a/i";
+	
+	//Body banners
+    public static final String XPATH_BANNER_RAY = "html/body/div[3]/div/div[2]/div[1]/div/div[3]/div[1]/div/div[1]/a/img";
+    public static final String XPATH_BANNER_SHINE2 = "html/body/div[3]/div/div[2]/div[1]/div/div[3]/div[1]/div/div[2]/a/img";
+    public static final String XPATH_BANNER_SWAROVSKI = "html/body/div[3]/div/div[2]/div[1]/div/div[3]/div[1]/div/div[3]/a/img";
+    public static final String XPATH_BANNER_SPEEDOSHINE2 = "html/body/div[3]/div/div[2]/div[1]/div/div[3]/div[1]/div/div[4]/a/img";
+    
+    //Body Blog
+    public static final String XPATH_BLOG = ".//*[@id='footer']/div/nav/section/div[1]/div[2]/div[2]/div/div[1]/div[2]/a";
+    public static final String XPATH_GETSTARTED = ".//*[@id='footer']/div/nav/section/div[1]/div[2]/div[2]/div/div[2]/div[2]/a";
+    
+    //Misfit Logo
+    public static final String XPATH_MISFIT_LOGO = "html/body/div[3]/div/header/div[6]/div/a/img";
+    
+    //Menu dropdown
+    public static final String XPATH_MENUDROPDOWN_RAY = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
+    public static final String XPATH_MENUDROPDOWN_RAYSS = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
+    public static final String XPATH_MENUDROPDOWN_SHINE2 = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
+    public static final String XPATH_MENUDROPDOWN_SPEEDOSHINE2 = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
+    public static final String XPATH_MENUDROPDOWN_SHINE = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
+    public static final String XPATH_MENUDROPDOWN_SPEEDOSHINE = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
+    public static final String XPATH_MENUDROPDOWN_SWAROVSKI = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
+    public static final String XPATH_MENUDROPDOWN_FLASH = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
+    public static final String XPATH_MENUDROPDOWN_RAY = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
+    
+    
 }
