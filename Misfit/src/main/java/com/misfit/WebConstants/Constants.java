@@ -66,15 +66,25 @@ public class Constants {
     public static final String XPATH_MISFIT_LOGO = "html/body/div[3]/div/header/div[6]/div/a/img";
     
     //Menu dropdown
+    public static final String XPATH_MENUDROPDOWN_FITNESSANDSLEEP = "html/body/div[3]/div/header/div[6]/div/div[2]/ul/li[1]/a";
     public static final String XPATH_MENUDROPDOWN_RAY = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
-    public static final String XPATH_MENUDROPDOWN_RAYSS = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
-    public static final String XPATH_MENUDROPDOWN_SHINE2 = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
-    public static final String XPATH_MENUDROPDOWN_SPEEDOSHINE2 = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
-    public static final String XPATH_MENUDROPDOWN_SHINE = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
-    public static final String XPATH_MENUDROPDOWN_SPEEDOSHINE = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
-    public static final String XPATH_MENUDROPDOWN_SWAROVSKI = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
-    public static final String XPATH_MENUDROPDOWN_FLASH = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
-    public static final String XPATH_MENUDROPDOWN_RAY = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[1]/a";
+    public static final String XPATH_MENUDROPDOWN_RAYSS = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[2]/a";
+    public static final String XPATH_MENUDROPDOWN_SHINE2 = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[3]/a";
+    public static final String XPATH_MENUDROPDOWN_SPEEDOSHINE2 = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[4]/a";
+    public static final String XPATH_MENUDROPDOWN_SHINE = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[5]/a";
+    public static final String XPATH_MENUDROPDOWN_SPEEDOSHINE = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[6]/a";
+    public static final String XPATH_MENUDROPDOWN_SWAROVSKI = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[7]/a";
+    public static final String XPATH_MENUDROPDOWN_FLASH = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[8]/a";
+    public static final String XPATH_MENUDROPDOWN_FLASH_CYCLIST = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[9]/a";
+    public static final String XPATH_MENUDROPDOWN_LINK = "html/body/div[3]/div/header/div[6]/div/div[1]/ul/li[10]/a";
+    
+    //Menu Accessories
+    public static final String XPATH_MENUDROPDOWN_ACCESSORIES = "html/body/div[3]/div/header/div[6]/div/div[2]/a";
+    public static final String XPATH_MENUDROPDOWN_ACCESSORIES_SHINE = "html/body/div[3]/div/header/div[6]/div/div[2]/ul/li[1]/a";
+    public static final String XPATH_MENUDROPDOWN_ACCESSORIES_SWAROVSKI = "html/body/div[3]/div/header/div[6]/div/div[2]/ul/li2]/a";
+    public static final String XPATH_MENUDROPDOWN_ACCESSORIESONNECTED_HOME_ = "html/body/div[3]/div/header/div[6]/div/div[4]/ul/li2]/a";
+    public static final String XPATH_MENUDROPDOWN_ACCESSORIES_BOLT = "html/body/div[3]/div/header/div[6]/div/div[2]/ul/li[5]/a";
+    public static final String XPATH_MENUDROPDOWN_ACCESSORIES_BEDDIT = "html/body/div[3]/div/header/div[6]/div/div[2]/ul/li[6]/a";
     
     
 }
