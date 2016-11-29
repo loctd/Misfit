@@ -1,4 +1,5 @@
 package com.misfit.Init;
+
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
@@ -11,50 +12,112 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
-
 import com.misfit.WebConstants.*;
-import com.webdriver.init.MyConstants;
-import com.webdriver.init.MyFFDriver;
+
+import junit.framework.Assert;
 
 public class Init {
-	
+
 	private FirefoxDriver driver;
+	Constants con = new Constants();
+
 	public FirefoxDriver driver() {
 		return driver;
 	}
 
 	// Setup everything to start testing
-
-	@BeforeTest
+	@BeforeMethod
 	public void setUp() {
-		driver = new MyFFDriver();
-		// System.setProperty("webdriver.chrome.driver", "lib/chromedriver");
-		// driver = new MyChromeDriver();
+		Reporter.log("=============Start Test===========", true);
+
+		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
+		//openBrowser("http://misfit.com");
+		openBrowser("http://store-web.int.misfit.com");
+		WaitForLoading();
+		loginGG(); // Staging only
+		// Click close popup
+		// clickByXpath(con.XPATH_POPUP_NOTHANK);
+
+		// Hover on flag to change country
+		HoverByXpath(con.XPATH_COUNTRY);
 	}
 
-	/*// Access Staging with GG login authentication
-	public void loginGG() {
+	// Close browser after testing
+	@AfterMethod
+	public void EndTest() {
+		Reporter.log("=============End Test===========", true);
+		driver.quit();
+	}
+
+	// Access Staging with GG login authentication public
+	void loginGG() {
 
 		// Get element by ID
 		WebElement ggID = driver.findElement(By.id("Email"));
 		// input ID
-		ggID.sendKeys(new MyConstants().ggID);
+		ggID.sendKeys(new Constants().ggID);
 		ggID.sendKeys(Keys.RETURN);
 
 		// Get element by PWD
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		WaitForLoading();
 
 		WebElement FossilID = driver.findElement(By.id("ContentPlaceHolder1_MFALoginControl1_UserIDView_txtUserid"));
-		FossilID.sendKeys(new MyConstants().FossilID);
+		FossilID.sendKeys(new Constants().FSID);
 		WebElement FossilPwd = driver.findElement(By.id("ContentPlaceHolder1_MFALoginControl1_UserIDView_tbxPassword"));
-		FossilPwd.sendKeys(new MyConstants().FossilPwd);
-		getDriver().findElement(By.id("ContentPlaceHolder1_MFALoginControl1_UserIDView_btnSubmit")).click();
+		FossilPwd.sendKeys(new Constants().FSPW);
+		driver().findElement(By.id("ContentPlaceHolder1_MFALoginControl1_UserIDView_btnSubmit")).click();
 	}
-*/
+
 	
-//--------------HOVER-------------------------	
+	//Assert constructors
+	public void checkPageLoad(String element, String textNeedToCompare )
+	{
+		String strng = driver.findElement(By.xpath(element)).getText();
+		System.out.println(strng);
+		Assert.assertEquals(textNeedToCompare, strng );
+	}
+	
+	
+	
+	
+	// ==================================CONSTRUCTORS======================================
+	// SWITCH TO SPECIFIC FRAME
+	// By ID
+	public void switchFramebyID(String element) {
+		driver().switchTo().frame(driver().findElement(By.id(element)));
+	}
+
+	// By Classname
+	public void switchFramebyClassName(String element) {
+		driver().switchTo().frame(driver().findElement(By.className(element)));
+	}
+
+	// By XPATH
+	public void switchFramebyXpath(String element) {
+		driver().switchTo().frame(driver().findElement(By.xpath(element)));
+	}
+
+	// Switch to default content
+	public void switchToDefaultFrame() {
+		driver().switchTo().defaultContent();
+	}
+
+	// OPEN Browser
+	public void openBrowser(String element) {
+		driver().navigate().to(element);
+	}
+
+	// Wait for specific time
+	public void WaitForLoading() {
+		driver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	}
+
+	// --------------HOVER-------------------------
 	// Hover by ClassName
 	public void HoverByClassName(String element) {
 		Actions action = new Actions(driver());
@@ -66,22 +129,21 @@ public class Init {
 		Actions action = new Actions(driver());
 		action.moveToElement(driver().findElement(By.id(element))).perform();
 	}
-	
+
 	// Hover by Xpath
-		public void HoverByXpath(String xpath) {
-			Actions action = new Actions(driver());
-			action.moveToElement(driver().findElement(By.xpath(xpath))).perform();
-		}
-	
-	//--------------HOVER-------------------------	
-		
-		
-		
-	//--------------CLICK-------------------------
+	public void HoverByXpath(String xpath) {
+		Actions action = new Actions(driver());
+		action.moveToElement(driver().findElement(By.xpath(xpath))).perform();
+	}
+
+	// --------------HOVER-------------------------
+
+	// --------------CLICK-------------------------
 	// Find ID element and click on it
 	public void clickByID(String ID) {
 		driver().findElement(By.id(ID)).click();
 	}
+
 	// Find className element and click on it
 	public void clickByclassName(String className) {
 		driver().findElement(By.className(className)).click();
@@ -91,9 +153,8 @@ public class Init {
 	public void clickByXpath(String xpath) {
 		driver().findElement(By.xpath(xpath)).click();
 	}
-	
-	
-	//--------------FILL-------------------------
+
+	// --------------FILL-------------------------
 	// Fill By Xpath
 	public void fillByXpath(String xpath, String elementToSendkey) {
 		driver().findElement(By.xpath(xpath)).sendKeys(elementToSendkey);
@@ -105,31 +166,28 @@ public class Init {
 	}
 
 	// Fill By tag class Name
-	public void fillByClassName(MyFFDriver getDriver, String element, String elementToSendKey) {
+	public void fillByClassName(FirefoxDriver getDriver, String element, String elementToSendKey) {
 		driver().findElement(By.className(element)).sendKeys(elementToSendKey);
 	}
-	//--------------FILL-------------------------
-	
-	
-	
-	//--------------GETTEXT-------------------------
+	// --------------FILL-------------------------
+
+	// --------------GETTEXT-------------------------
 	// Get text by ID
 	public String getTextByID(String id) {
 		return driver().findElement(By.id(id)).getText();
 	}
+
 	// Get text by Classname
-		public String getTextByClassName(String id) {
-			return driver().findElement(By.className(id)).getText();
+	public String getTextByClassName(String id) {
+		return driver().findElement(By.className(id)).getText();
 	}
+
 	// Get text by Xpath
 	public String getTextByXpath(String xpath) {
 		return driver().findElement(By.xpath((xpath))).getText();
 	}
-	
-	
-	
-	
-	//--------------LOGIN-------------------------
+
+	// --------------LOGIN-------------------------
 	// Login by ID
 	public void LoginById(String userName, String userNameToSendKey, String password, String passwordToSendKey,
 			String button) {
@@ -153,55 +211,45 @@ public class Init {
 		driver().findElement(By.xpath(password)).sendKeys(passwordToSendKey);
 		driver().findElement(By.xpath(button)).click();
 	}
-	//--------------LOGIN-------------------------
-	
-	
-	//--------------SELECT DROPBOX-------------------------
+	// --------------LOGIN-------------------------
+
+	// --------------SELECT DROPBOX-------------------------
 	// Select dropdown box by ID
 	public void selectDropDownBoxById(String element, String selectNeedTexts) {
 		Select select = new Select(driver().findElement(By.id(element)));
 		select.selectByVisibleText(selectNeedTexts);
 	}
-	
+
 	// Select dropdown box by classname
-		public void selectDropDownBoxByClassName(String element, String selectNeedTexts) {
-			Select select = new Select(driver().findElement(By.className(element)));
-			select.selectByVisibleText(selectNeedTexts);
-		}
-	
+	public void selectDropDownBoxByClassName(String element, String selectNeedTexts) {
+		Select select = new Select(driver().findElement(By.className(element)));
+		select.selectByVisibleText(selectNeedTexts);
+	}
+
 	// Select dropdown box by Xpath
 	public void selectDropDownBoxByXpath(String element, String selectNeedTexts) {
 		Select select = new Select(driver().findElement(By.xpath(element)));
 		select.selectByVisibleText(selectNeedTexts);
 	}
-	//--------------SELECT DROPBOX-------------------------	
-	
-	
+	// --------------SELECT DROPBOX-------------------------
 
-	
-	//--------------CAPTURE SCREENSHOT-------------------------
+	// --------------CAPTURE SCREENSHOT-------------------------
 	// Get screenshot if error happens
 	public void getscreenshot(String Screenshot) throws Exception {
 		File scrFile = ((TakesScreenshot) driver()).getScreenshotAs(OutputType.FILE);
-		// The below method will save the screenshot in indicated drive with name "screenshot.png"
+		// The below method will save the screenshot in indicated drive with
+		// name "screenshot.png"
 		FileUtils.copyFile(scrFile, new File(Screenshot));
 	}
-	//--------------CAPTURE SCREENSHOT-------------------------
-	
-	
-	
-	
+	// --------------CAPTURE SCREENSHOT-------------------------
+
 	// Check Element isDisplay
 	public boolean checkDisplayed(String element) {
-		if(driver().findElement(By.xpath(element)).isDisplayed())
-		return true;
-		
+		if (driver().findElement(By.xpath(element)).isDisplayed())
+			return true;
+
 		else
-		return false;
+			return false;
 	}
 
-	// Finish test then close browser
-	/*
-	 * @AfterTest public void tearDown() { driver.quit(); }
-	 */
 }

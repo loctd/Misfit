@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="com.misfit.Init.Init"/>
+      <class name="com.misfit.Misfit.AppTest"/>
+      <class name="com.misfit.checkouts.Checkout"/>
+      <class name="com.misfit.checkCatetory.CheckCategories"/>
+      <class name="com.misfit.checkouts.CheckoutPaypal"/>
+      <class name="com.misfit.checkCatetory.CheckCategoriesTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
